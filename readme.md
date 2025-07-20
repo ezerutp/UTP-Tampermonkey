@@ -1,6 +1,6 @@
 # Scripts Tampermonkey para Class UTP
 
-Este repositorio contiene tres scripts de Tampermonkey diseñados para mejorar la experiencia en la plataforma [Class UTP](https://class.utp.edu.pe/).
+Este repositorio contiene 5 scripts de Tampermonkey diseñados para mejorar la experiencia en la plataforma [Class UTP](https://class.utp.edu.pe/).
 
 ## Scripts
 
@@ -26,7 +26,14 @@ Este repositorio contiene tres scripts de Tampermonkey diseñados para mejorar l
 - Las actividades vencidas se muestran en una ventana emergente, separadas del resto.
 - Permite cerrar el modal haciendo clic fuera de él.
 
-### 3. Ocultar banners completamente
+### 3. Modal con actividades no calificadas
+
+**Archivo** [`utp-modal-nocalificadas.js`](utp-modal-nocalificadas.js)
+- Muestra un botón en la cabecera para visualizar todas las actividades que son de caracter no calificadas.
+- Las actividades no calificadas se presentan en un modal separado, facilitando su revisión.
+- Permite cerrar el modal haciendo clic fuera de él.
+
+### 4. Ocultar banners completamente
 
 **Archivo:** [`utp-remover-banner.js`](utp-remover-banner.js)
 
@@ -34,7 +41,19 @@ Este repositorio contiene tres scripts de Tampermonkey diseñados para mejorar l
 - También elimina los contenedores vacíos que quedan tras quitar el banner.
 - Funciona automáticamente al cargar la página y ante cambios dinámicos.
 
+## 5. Boton de Zoom en la cartilla del curso
+
+**Archivo:** [`utp-zoom-cartilla.js`](utp-zoom-cartilla.js)
+
+- Añade un botón de Zoom en la cartilla de cada curso para ingresar directamente al contenido.
+- Permite acceder rápidamente a la sala de Zoom asociada al curso desde la cartilla principal.
+- Facilita la navegación y ahorra tiempo al evitar pasos intermedios.
+
+
 ## Instalación
+
+> ⚠️ **Aviso importante:**  
+> Para que los scripts funcionen correctamente, asegúrate de que Tampermonkey esté activado en **modo desarrollador**. Esto permite cargar y ejecutar scripts personalizados sin restricciones.
 
 1. Instala la extensión [Tampermonkey](https://www.tampermonkey.net/) en tu navegador.
 2. Haz clic en "Crear un nuevo script" y pega el contenido de cada archivo según el script que desees usar.
