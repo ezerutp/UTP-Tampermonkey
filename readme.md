@@ -43,7 +43,7 @@ Este repositorio contiene 5 scripts de Tampermonkey diseñados para mejorar la e
 
 ## 5. Boton de Zoom en la cartilla del curso
 
-**Archivo:** [`utp-zoom-cartilla.js`](utp-zoom-cartilla.js)
+**Archivo:** [`utp-boton-zoom.js`](utp-boton-zoom.js.js)
 
 - Añade un botón de Zoom en la cartilla de cada curso para ingresar directamente al contenido.
 - Permite acceder rápidamente a la sala de Zoom asociada al curso desde la cartilla principal.
@@ -58,6 +58,20 @@ Este repositorio contiene 5 scripts de Tampermonkey diseñados para mejorar la e
 1. Instala la extensión [Tampermonkey](https://www.tampermonkey.net/) en tu navegador.
 2. Haz clic en "Crear un nuevo script" y pega el contenido de cada archivo según el script que desees usar.
 3. Guarda los cambios y recarga la página de [Class UTP](https://class.utp.edu.pe/).
+
+## Screenshots
+
+### Vista general de las mejoras aplicadas
+
+![Screenshot 1](screenshot/ScreenShot%20Tool%20-20250720110109.png)
+*Vista principal de Class UTP con los scripts activados mostrando días restantes y colores de urgencia. Interfaz limpia sin banners y con todas las mejoras aplicadas*
+
+![Screenshot 2](screenshot/ScreenShot%20Tool%20-20250720110136.png)
+*Modal de actividades con calificadas*
+
+![Screenshot 3](screenshot/ScreenShot%20Tool%20-20250720110155.png)
+*Modal de actividades vencidas*
+
 
 ## Notas
 
