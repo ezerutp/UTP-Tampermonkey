@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Class UTP - Modal con tareas vencidas
+// @name         Class UTP - Modal con tareas no calificadas
 // @namespace    https://utp.edu.pe/
-// @version      1.2
-// @description  Muestra un modal con las actividades vencidas
+// @version      1.0
+// @description  Muestra un modal con las actividades no calificadas
 // @match        https://class.utp.edu.pe/*
 // @grant        none
 // ==/UserScript==
@@ -15,24 +15,24 @@
         if (cartillas.length === 0) return;
 
         const header = document.querySelector('span[data-testid="header"]');
-        if (!header || document.getElementById('btn-vencidos')) return;
+        if (!header || document.getElementById('btn-nocal')) return;
 
         // Crear botón
         const boton = document.createElement('button');
-        boton.id = 'btn-vencidos';
-        boton.innerText = 'Vencidas 💀';
+        boton.id = 'btn-nocal';
+        boton.innerText = ' No calificadas 😊';
         boton.style.marginLeft = '12px';
         boton.style.padding = '6px 10px';
         boton.style.fontSize = '14px';
-        boton.style.backgroundColor = '#ff0000ff';
-        boton.style.border = '1px solid #920404ff';
+        boton.style.backgroundColor = '#ffffff';
+        boton.style.border = '1px solid #ccc';
         boton.style.borderRadius = '6px';
         boton.style.cursor = 'pointer';
-        boton.style.color = '#ffffff';
+        boton.style.color = '#444';
         boton.style.display = 'inline-block';
 
         const modalOverlay = document.createElement('div');
-        modalOverlay.id = 'modal-vencidos-overlay';
+        modalOverlay.id = 'modal-nocal-overlay';
         modalOverlay.style.position = 'fixed';
         modalOverlay.style.top = '0';
         modalOverlay.style.left = '0';
@@ -45,7 +45,7 @@
         modalOverlay.style.alignItems = 'center';
 
         const modal = document.createElement('div');
-        modal.id = 'modal-vencidos';
+        modal.id = 'modal-nocal';
         modal.style.overflowY = 'scroll';
         modal.style.scrollbarWidth = 'none';
         modal.style.msOverflowStyle = 'none';
@@ -62,14 +62,14 @@
         modal.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
         modal.style.position = 'relative';
 
-        const listaVencidos = document.createElement('div');
-        listaVencidos.id = 'lista-vencidos';
-        listaVencidos.style.display = 'flex';
-        listaVencidos.style.flexDirection = 'column';
-        listaVencidos.style.gap = '12px';
-        listaVencidos.style.width = '100%';
+        const listaNoCalificadas = document.createElement('div');
+        listaNoCalificadas.id = 'lista-no-calificadas';
+        listaNoCalificadas.style.display = 'flex';
+        listaNoCalificadas.style.flexDirection = 'column';
+        listaNoCalificadas.style.gap = '12px';
+        listaNoCalificadas.style.width = '100%';
 
-        modal.appendChild(listaVencidos);
+        modal.appendChild(listaNoCalificadas);
         modalOverlay.appendChild(modal);
 
         document.body.appendChild(modalOverlay);
@@ -80,13 +80,16 @@
 
         header.appendChild(boton);
 
-        // Mover cartillas vencidas al modal
+        // Mover cartillas no calificadas al modal
         cartillas.forEach(cartilla => {
-            const caducado = [...cartilla.querySelectorAll("p")]
-                .find(p => p.textContent.trim().startsWith("Caducó"));
+            const noCalificada = [...cartilla.querySelectorAll("p")]
+                .find(p => {
+                    const txt = p.textContent.trim().toLowerCase();
+                    return txt.endsWith("no calificado") || txt.endsWith("no calificada");
+                });
 
-            if (caducado && !cartilla.dataset.enModal) {
-                listaVencidos.appendChild(cartilla);
+            if (noCalificada && !cartilla.dataset.enModal) {
+                listaNoCalificadas.appendChild(cartilla);
                 cartilla.dataset.enModal = "true";
                 cartilla.style.opacity = "0.8";
                 cartilla.style.border = "1px solid #eee";
