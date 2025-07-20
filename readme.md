@@ -43,7 +43,7 @@ Este repositorio contiene 5 scripts de Tampermonkey diseñados para mejorar la e
 
 ## 5. Boton de Zoom en la cartilla del curso
 
-**Archivo:** [`utp-boton-zoom.js`](utp-boton-zoom.js.js)
+**Archivo:** [`utp-boton-zoom.js`](utp-boton-zoom.js)
 
 - Añade un botón de Zoom en la cartilla de cada curso para ingresar directamente al contenido.
 - Permite acceder rápidamente a la sala de Zoom asociada al curso desde la cartilla principal.
